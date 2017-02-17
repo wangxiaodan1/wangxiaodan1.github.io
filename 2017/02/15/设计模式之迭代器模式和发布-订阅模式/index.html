@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="&amp;#x4E00;&amp;#x3001;&amp;#x8FED;&amp;#x4EE3;&amp;#x5668;&amp;#x6A21;&amp;#x5F0F;&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x8FED;&amp;#x4EE3;&amp;#x5668;&amp;#x6A21;&amp;#x5F0F;&amp;#xFF1F;
 &amp;#x8FED;&amp;#x4EE3;&amp;#x5668;&amp;#x6A21;&amp;#x5F0F;&amp;#x662F;&amp;#x6307;&amp;#x63D0;&amp;#x4F9B">
-<meta property="og:updated_time" content="2017-02-15T03:19:36.000Z">
+<meta property="og:updated_time" content="2017-02-15T05:33:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之迭代器模式和发布-订阅模式">
 <meta name="twitter:description" content="&amp;#x4E00;&amp;#x3001;&amp;#x8FED;&amp;#x4EE3;&amp;#x5668;&amp;#x6A21;&amp;#x5F0F;&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x8FED;&amp;#x4EE3;&amp;#x5668;&amp;#x6A21;&amp;#x5F0F;&amp;#xFF1F;
@@ -318,9 +318,10 @@ salesOffices.listen(&apos;&#x98DF;&#x7269;&apos;, (price) =&gt; {
 })
 salesOffices.trigger(&apos;&#x5316;&#x5986;&#x6C34;&apos;, 1000);
 salesOffices.trigger(&apos;&#x98DF;&#x7269;&apos;, 2000);
-</code></pre><h4 id="6-&#x53D6;&#x6D88;&#x8BA2;&#x9605;&#x7684;&#x4E8B;&#x4EF6;"><a href="#6-&#x53D6;&#x6D88;&#x8BA2;&#x9605;&#x7684;&#x4E8B;&#x4EF6;" class="headerlink" title="6. &#x53D6;&#x6D88;&#x8BA2;&#x9605;&#x7684;&#x4E8B;&#x4EF6;"></a>6. &#x53D6;&#x6D88;&#x8BA2;&#x9605;&#x7684;&#x4E8B;&#x4EF6;</h4><pre><code>&#x589E;&#x52A0;remove&#x65B9;&#x6CD5;&#xFF1A;
-
-var event = {
+</code></pre><h4 id="6-&#x53D6;&#x6D88;&#x8BA2;&#x9605;&#x7684;&#x4E8B;&#x4EF6;"><a href="#6-&#x53D6;&#x6D88;&#x8BA2;&#x9605;&#x7684;&#x4E8B;&#x4EF6;" class="headerlink" title="6. &#x53D6;&#x6D88;&#x8BA2;&#x9605;&#x7684;&#x4E8B;&#x4EF6;"></a>6. &#x53D6;&#x6D88;&#x8BA2;&#x9605;&#x7684;&#x4E8B;&#x4EF6;</h4><blockquote>
+<p>&#x589E;&#x52A0;remove&#x65B9;&#x6CD5;&#xFF1A;</p>
+</blockquote>
+<pre><code>var event = {
  clinetList: [],
  listen: function(key, fn) {
    if(!this.clinetList[key]) {
@@ -409,7 +410,14 @@ var event = {
             <div class="column nav-left">
                 
 
-                <a class="ui tiny button disabled"><i class="angle left icon"></i>Previous</a>
+                <a href="/2017/02/15/react-环境搭建/" class="ui tiny button">
+
+                    <i class="angle left icon"></i>
+                    
+                    react 环境搭建
+                    
+
+                </a>
 
                 
             </div>
