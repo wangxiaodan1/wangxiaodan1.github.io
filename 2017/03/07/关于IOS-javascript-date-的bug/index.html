@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html>
+<html lang="null">
+<head prefix="og: http://ogp.me/ns#">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content="null">
+    <title>关于IOS javascript date 的bug | Hexo</title>
+
+    <!-- Open Graph -->
+    <meta name="description" content="&amp;#x5173;&amp;#x4E8E;IOS javascript Date &amp;#x7684;bugIOS safari &amp;#x4E2D;&amp;#x4E0D;&amp;#x80FD;&amp;#x89E3;&amp;#x6790;&amp;#x7684;&amp;#x65F6;&amp;#x95F4;&amp;#x683C;&amp;#x5F0F;&amp;#x65F6;&amp;#x95F4;&amp;#x683C;&amp;#x5F0F;(&amp;#x4E09;&amp;#x79CD;)2017-03-12 1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于IOS javascript date 的bug">
+<meta property="og:url" content="http://yoursite.com/2017/03/07/关于IOS-javascript-date-的bug/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="&amp;#x5173;&amp;#x4E8E;IOS javascript Date &amp;#x7684;bugIOS safari &amp;#x4E2D;&amp;#x4E0D;&amp;#x80FD;&amp;#x89E3;&amp;#x6790;&amp;#x7684;&amp;#x65F6;&amp;#x95F4;&amp;#x683C;&amp;#x5F0F;&amp;#x65F6;&amp;#x95F4;&amp;#x683C;&amp;#x5F0F;(&amp;#x4E09;&amp;#x79CD;)2017-03-12 1">
+<meta property="og:updated_time" content="2017-03-07T09:01:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于IOS javascript date 的bug">
+<meta name="twitter:description" content="&amp;#x5173;&amp;#x4E8E;IOS javascript Date &amp;#x7684;bugIOS safari &amp;#x4E2D;&amp;#x4E0D;&amp;#x80FD;&amp;#x89E3;&amp;#x6790;&amp;#x7684;&amp;#x65F6;&amp;#x95F4;&amp;#x683C;&amp;#x5F0F;&amp;#x65F6;&amp;#x95F4;&amp;#x683C;&amp;#x5F0F;(&amp;#x4E09;&amp;#x79CD;)2017-03-12 1">
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:undefined",
+  "image": "undefined",
+  "name": "John Doe",
+  "url": "http://yoursite.com"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
+</script>
+
+    
+
+    
+    
+        <link href="https://fonts.gmirror.org/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
+
+</head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
+
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
+    </div>
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>Hexo</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/images/avatar.jpg">
+                </div>
+                <div class="content">
+                    <a class="header">John Doe</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    
+    
+
+    
+
+    
+    <a href="/index.html" class="item" >
+        <i class="home icon"></i>
+        HOME
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-关于IOS-javascript-date-的bug" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+<h1 class="ui header">
+    
+    关于IOS javascript date 的bug
+</h1>
+
+
+
+                <div class="article-inner">
+
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <h1 id="&#x5173;&#x4E8E;IOS-javascript-Date-&#x7684;bug"><a href="#&#x5173;&#x4E8E;IOS-javascript-Date-&#x7684;bug" class="headerlink" title="&#x5173;&#x4E8E;IOS javascript Date &#x7684;bug"></a>&#x5173;&#x4E8E;IOS javascript Date &#x7684;bug</h1><h2 id="IOS-safari-&#x4E2D;&#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x65F6;&#x95F4;&#x683C;&#x5F0F;"><a href="#IOS-safari-&#x4E2D;&#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x65F6;&#x95F4;&#x683C;&#x5F0F;" class="headerlink" title="IOS safari &#x4E2D;&#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x65F6;&#x95F4;&#x683C;&#x5F0F;"></a>IOS safari &#x4E2D;&#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x65F6;&#x95F4;&#x683C;&#x5F0F;</h2><h4 id="&#x65F6;&#x95F4;&#x683C;&#x5F0F;-&#x4E09;&#x79CD;"><a href="#&#x65F6;&#x95F4;&#x683C;&#x5F0F;-&#x4E09;&#x79CD;" class="headerlink" title="&#x65F6;&#x95F4;&#x683C;&#x5F0F;(&#x4E09;&#x79CD;)"></a>&#x65F6;&#x95F4;&#x683C;&#x5F0F;(&#x4E09;&#x79CD;)</h4><pre><code>2017-03-12 12:00:00
+2017-03-12
+2017-3-12
+</code></pre><h4 id="safari&#x6D4F;&#x89C8;&#x5668;-&#x89E3;&#x6790;&#x4E0A;&#x9762;&#x65F6;&#x95F4;&#x683C;&#x5F0F;"><a href="#safari&#x6D4F;&#x89C8;&#x5668;-&#x89E3;&#x6790;&#x4E0A;&#x9762;&#x65F6;&#x95F4;&#x683C;&#x5F0F;" class="headerlink" title="safari&#x6D4F;&#x89C8;&#x5668; &#x89E3;&#x6790;&#x4E0A;&#x9762;&#x65F6;&#x95F4;&#x683C;&#x5F0F;"></a>safari&#x6D4F;&#x89C8;&#x5668; &#x89E3;&#x6790;&#x4E0A;&#x9762;&#x65F6;&#x95F4;&#x683C;&#x5F0F;</h4><blockquote>
+<p>1.&#x4F7F;&#x7528;new Date()</p>
+</blockquote>
+<pre><code>const time = new Date(&apos;2017-03-12&apos;);
+console.log(time); // Sun Mar 12 2017 08:00:00 GMT+0800 (CST)
+
+const time = new Date(&apos;2017-3-12&apos;);
+console.log(time); // Invalid Date
+
+const time = new Date(&apos;2017-03-12 12:00:00&apos;);
+console.log(time); // invalid Date
+</code></pre><blockquote>
+<p>2.&#x4F7F;&#x7528;moment</p>
+</blockquote>
+<pre><code>const time = moment(&apos;2017-03-12&apos;).format(&apos;YYYYMMDD&apos;);
+console.log(time); // &quot;20170312&quot;
+
+const time = moment(&apos;2017-3-12&apos;).format(&apos;YYYYMMDD&apos;);
+console.log(time); // &quot;Invalid date&quot;
+
+const time = moment(&apos;2017-03-12 12:00:00&apos;).format(&apos;YYYYMMDD&apos;);
+console.log(time); // &quot;20170312&quot;
+
+const time = moment(&apos;2017-3-12 12:00:00&apos;).format(&apos;YYYYMMDD&apos;);
+console.log(time); // &quot;Invalid date&quot;
+</code></pre><h4 id="chrome-&#x5168;&#x90E8;&#x89E3;&#x6790;&#x6B63;&#x5E38;"><a href="#chrome-&#x5168;&#x90E8;&#x89E3;&#x6790;&#x6B63;&#x5E38;" class="headerlink" title="chrome &#x5168;&#x90E8;&#x89E3;&#x6790;&#x6B63;&#x5E38;"></a>chrome &#x5168;&#x90E8;&#x89E3;&#x6790;&#x6B63;&#x5E38;</h4><h4 id="IOS-&#x4E2D;new-Date-&#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x539F;&#x56E0;"><a href="#IOS-&#x4E2D;new-Date-&#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x539F;&#x56E0;" class="headerlink" title="IOS &#x4E2D;new Date() &#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x539F;&#x56E0;"></a>IOS &#x4E2D;new Date() &#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x539F;&#x56E0;</h4><blockquote>
+<p>&#x5728;IOS5&#x4EE5;&#x4E0A;&#x7248;&#x672C;&#xFF08;&#x4E0D;&#x5305;&#x542B;IOS5&#xFF09;&#x4E2D;&#x7684;Safari&#x6D4F;&#x89C8;&#x5668;&#x80FD;&#x6B63;&#x786E;&#x89E3;&#x6790;&#x51FA;Javascript&#x4E2D;&#x7684; new Date(&#x2018;2017-03-12&#x2019;) &#x7684;&#x65E5;&#x671F;&#x5BF9;&#x8C61;&#x3002;&#x4E0D;&#x80FD;&#x89E3;&#x6790;new Date(&#x2018;2017-03-12 12:00:00&#x2019;)&#x7684;&#x65E5;&#x671F;&#x5BF9;&#x8C61;</p>
+<p>&#x4F46;&#x662F;&#x5728;IOS5&#x7248;&#x672C;&#x91CC;&#x9762;&#x7684;Safari&#x89E3;&#x6790;new Date(&#x2018;2017-03-12&#x2019;) &#x5C31;&#x4E0D;&#x6B63;&#x786E;&#xFF0C;&#x5728;IOS5&#x7684;Safari&#x4E2D;&#x8FD4;&#x56DE;&#x7684;&#x6C38;&#x8FDC;&#x662F;&#x201D;Invalid Date&#x201D;&#x3002;</p>
+<p>YYYY-MM-DD&#x683C;&#x5F0F;&#x662F;&#x5305;&#x542B;&#x5728;&#x6807;&#x51C6;&#x4E2D;&#x7684;&#xFF0C;&#x53EA;&#x662F;Safari&#x6CA1;&#x6709;&#x5B9E;&#x73B0;, &#x89E3;&#x51B3;&#x529E;&#x6CD5;&#xFF1A; &#x4F7F;&#x7528;&#x2018;/&#x2019; &#x4EE3;&#x66FF; &#x2018;-&#x2018;  new Date(&#x2018;2017/03/12 12:00:00&#x2019;);</p>
+</blockquote>
+<h4 id="IOS-&#x4E2D;moment-&#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x89E3;&#x51B3;&#x529E;&#x6CD5;"><a href="#IOS-&#x4E2D;moment-&#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x89E3;&#x51B3;&#x529E;&#x6CD5;" class="headerlink" title="IOS &#x4E2D;moment() &#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x89E3;&#x51B3;&#x529E;&#x6CD5;"></a>IOS &#x4E2D;moment() &#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x89E3;&#x51B3;&#x529E;&#x6CD5;</h4><blockquote>
+<p>&#x4F7F;&#x7528;moment(&#x2018;&#x65F6;&#x95F4;&#x2019;, &#x2018;YYYY-MM&#x2019;).format(&#x2018;YYYYYMM&#x2019;)&#x4EE3;&#x66FF;</p>
+</blockquote>
+
+                        
+                    </div>
+
+                    
+                    
+                    
+
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2017-03-07T06:49:29.000Z" itemprop="datePublished">2017-03-07</time>
+
+    </span>
+    <span class="post-description-item">
+        
+    </span>
+</div>
+
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
+
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
+
+                <a class="ui tiny button disabled"><i class="angle left icon"></i>Previous</a>
+
+                
+            </div>
+            <div class="column nav-right">
+                
+
+                <a href="/2017/02/17/js-关于文件处理/" class="ui tiny button">
+                    
+                    js 关于文件处理
+                    
+                    <i class="angle right icon"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+                
+            </div>
+
+            
+            <div class="three wide computer three wide tablet column">
+
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    <ol class="ui ordered list"><li><a href="#关于IOS-javascript-Date-的bug"><span>关于IOS javascript Date 的bug</span></a><ol><li><a href="#IOS-safari-中不能解析的时间格式"><span>IOS safari 中不能解析的时间格式</span></a><ol><li><a href="#时间格式-三种"><span>时间格式(三种)</span></a></li><li><a href="#safari浏览器-解析上面时间格式"><span>safari浏览器 解析上面时间格式</span></a></li><li><a href="#chrome-全部解析正常"><span>chrome 全部解析正常</span></a></li><li><a href="#IOS-中new-Date-不能解析的原因"><span>IOS 中new Date() 不能解析的原因</span></a></li><li><a href="#IOS-中moment-不能解析的解决办法"><span>IOS 中moment() 不能解析的解决办法</span></a></li></ol></li></ol></li></ol></li></ol>
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2017 <a href="/">John Doe</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a
+                href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
+
+    </div>
+
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/js/semantic-ui-algolia.js"></script>
+
+<script src="/js/aloha-events.js"></script>
+
+
+
+</body>
+</html>
