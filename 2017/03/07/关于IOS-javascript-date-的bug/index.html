@@ -1,153 +1,12 @@
-
-
-<!DOCTYPE html>
-<html lang="null">
-<head prefix="og: http://ogp.me/ns#">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <meta name="description" content="null">
-    <title>关于IOS javascript date 的bug | Hexo</title>
-
-    <!-- Open Graph -->
-    <meta name="description" content="========== =========== =========== ==============
-IOS safari &amp;#x4E2D;&amp;#x4E0D;&amp;#x80FD;&amp;#x89E3;&amp;#x6790;&amp;#x7684;&amp;#x65F6;&amp;#x95F4;&amp;#x683C;&amp;#x5F0F;1.&amp;#x9700;&amp;#x89E3;&amp;#x6790;&amp;#x7684;&amp;#x65F6;&amp;#x95F4;&amp;#x683C;&amp;">
-<meta property="og:type" content="article">
-<meta property="og:title" content="关于IOS javascript date 的bug">
-<meta property="og:url" content="http://yoursite.com/2017/03/07/关于IOS-javascript-date-的bug/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="========== =========== =========== ==============
-IOS safari &amp;#x4E2D;&amp;#x4E0D;&amp;#x80FD;&amp;#x89E3;&amp;#x6790;&amp;#x7684;&amp;#x65F6;&amp;#x95F4;&amp;#x683C;&amp;#x5F0F;1.&amp;#x9700;&amp;#x89E3;&amp;#x6790;&amp;#x7684;&amp;#x65F6;&amp;#x95F4;&amp;#x683C;&amp;">
-<meta property="og:updated_time" content="2017-03-07T09:15:27.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于IOS javascript date 的bug">
-<meta name="twitter:description" content="========== =========== =========== ==============
-IOS safari &amp;#x4E2D;&amp;#x4E0D;&amp;#x80FD;&amp;#x89E3;&amp;#x6790;&amp;#x7684;&amp;#x65F6;&amp;#x95F4;&amp;#x683C;&amp;#x5F0F;1.&amp;#x9700;&amp;#x89E3;&amp;#x6790;&amp;#x7684;&amp;#x65F6;&amp;#x95F4;&amp;#x683C;&amp;">
-
-    <script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Person",
-  "email": "mailto:undefined",
-  "image": "undefined",
-  "name": "John Doe",
-  "url": "http://yoursite.com"
-}
-</script>
-    <script>
-    var algoliaEnabled = false;
-    
-</script>
-
-    
-
-    
-    
-        <link href="https://fonts.gmirror.org/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-    
-    
-    
-        <!-- stylesheets list from config.yml -->
-        
-        <link rel="stylesheet" href="/css/aloha.css">
-        
-        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
-        
-        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
-        
-    
-
-</head>
-<body id="body" style="margin-bottom: 0;" class="pushable">
-
-    <div class="ui top fixed menu">
-        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
-    </div>
-
-    <div id="menu-sidebar" class="ui left vertical sidebar menu">
-
-    <div id="sidebar-top">
-        <div class="content">
-            <h3>Hexo</h3>
-        </div>
-    </div>
-    <div class="ui container sidebar-card">
-    <div class="ui people shape content">
-        <div class="active side">
-            <div class="ui card">
-                <div class="image">
-                    <img class="ui medium bordered image" src="/images/avatar.jpg">
-                </div>
-                <div class="content">
-                    <a class="header">John Doe</a>
-                    
-                </div>
-                <div class="extra content">
-                    <div class="ui list">
-                        
-                        
-                    </div>
-
-                </div>
-                <div class="extra content">
-                    <div class="ui list">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-</div>
-
-    
-    
-
-    
-
-    
-    <a href="/index.html" class="item" >
-        <i class="home icon"></i>
-        HOME
-    </a>
-
-    
-
-    
-</div>
-
-    <div class="pusher body-content">
-        <div id="content" class="ui main container">
-            <!--<div class="ui one column grid">-->
-                <!--<div class="column">-->
-                    <!--<div class="ui main container">-->
-                        <div id="post-关于IOS-javascript-date-的bug" class="ui main container article-type-post">
-
-    
-
-    <div class="ui divided grid">
-
-        <div class="two column row" id="article-content">
-
-            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
-                
-
-<h1 class="ui header">
-    
-    关于IOS javascript date 的bug
-</h1>
-
-
-
-                <div class="article-inner">
-
-                    <div class="article-entry" itemprop="articleBody">
-                        
-                        <p>========== =========== =========== ==============</p>
-<h2 id="IOS-safari-&#x4E2D;&#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x65F6;&#x95F4;&#x683C;&#x5F0F;"><a href="#IOS-safari-&#x4E2D;&#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x65F6;&#x95F4;&#x683C;&#x5F0F;" class="headerlink" title="IOS safari &#x4E2D;&#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x65F6;&#x95F4;&#x683C;&#x5F0F;"></a>IOS safari &#x4E2D;&#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x65F6;&#x95F4;&#x683C;&#x5F0F;</h2><h3 id="1-&#x9700;&#x89E3;&#x6790;&#x7684;&#x65F6;&#x95F4;&#x683C;&#x5F0F;-&#x4E09;&#x79CD;"><a href="#1-&#x9700;&#x89E3;&#x6790;&#x7684;&#x65F6;&#x95F4;&#x683C;&#x5F0F;-&#x4E09;&#x79CD;" class="headerlink" title="1.&#x9700;&#x89E3;&#x6790;&#x7684;&#x65F6;&#x95F4;&#x683C;&#x5F0F;(&#x4E09;&#x79CD;)"></a>1.&#x9700;&#x89E3;&#x6790;&#x7684;&#x65F6;&#x95F4;&#x683C;&#x5F0F;(&#x4E09;&#x79CD;)</h3><pre><code>2017-03-12 12:00:00
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Ben Wong,wenbinben@gmail.com"><title>关于IOS javascript date 的bug · Hexo</title><meta name="description" content="========== =========== =========== ==============
+IOS safari 中不能解析的时间格式1.需解析的时间格式(三种)2017-03-12 12:00:00
 2017-03-12
 2017-3-12
-</code></pre><h3 id="2-safari&#x6D4F;&#x89C8;&#x5668;-&#x89E3;&#x6790;&#x4E0A;&#x9762;&#x65F6;&#x95F4;&#x683C;&#x5F0F;"><a href="#2-safari&#x6D4F;&#x89C8;&#x5668;-&#x89E3;&#x6790;&#x4E0A;&#x9762;&#x65F6;&#x95F4;&#x683C;&#x5F0F;" class="headerlink" title="2.safari&#x6D4F;&#x89C8;&#x5668; &#x89E3;&#x6790;&#x4E0A;&#x9762;&#x65F6;&#x95F4;&#x683C;&#x5F0F;"></a>2.safari&#x6D4F;&#x89C8;&#x5668; &#x89E3;&#x6790;&#x4E0A;&#x9762;&#x65F6;&#x95F4;&#x683C;&#x5F0F;</h3><h4 id="&#xFF08;1&#xFF09;-&#x4F7F;&#x7528;new-Date"><a href="#&#xFF08;1&#xFF09;-&#x4F7F;&#x7528;new-Date" class="headerlink" title="&#xFF08;1&#xFF09;.&#x4F7F;&#x7528;new Date()"></a>&#xFF08;1&#xFF09;.&#x4F7F;&#x7528;new Date()</h4><pre><code>const time = new Date(&apos;2017-03-12&apos;);
+2.safari浏览器 解析上面时间格式（1）."><meta name="keywords" content="Hexo,HTML,Ben,CSS,安卓,android,Linux,linuxdeepin"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">Hexo</a></h3><div class="description"><p>Nothing lasts forever.</p></div></div></div><ul class="social-links"><li><a href="https://twitter.com/Ben_wenbin"><i class="fa fa-twitter"></i></a></li><li><a href="http://instagram.com/hwbinbenben"><i class="fa fa-instagram"></i></a></li><li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li><li><a href="http://weibo.com/ben0036"><i class="fa fa-weibo"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai</a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="https://secure.gravatar.com/avatar/e71df8021446fe9759a9928b1dd5c28d?s=180&amp;r=G&amp;d="></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>关于IOS javascript date 的bug</a></h3></div><div class="post-content"><p>========== =========== =========== ==============</p>
+<h2 id="IOS-safari-中不能解析的时间格式"><a href="#IOS-safari-中不能解析的时间格式" class="headerlink" title="IOS safari 中不能解析的时间格式"></a>IOS safari 中不能解析的时间格式</h2><h3 id="1-需解析的时间格式-三种"><a href="#1-需解析的时间格式-三种" class="headerlink" title="1.需解析的时间格式(三种)"></a>1.需解析的时间格式(三种)</h3><pre><code>2017-03-12 12:00:00
+2017-03-12
+2017-3-12
+</code></pre><h3 id="2-safari浏览器-解析上面时间格式"><a href="#2-safari浏览器-解析上面时间格式" class="headerlink" title="2.safari浏览器 解析上面时间格式"></a>2.safari浏览器 解析上面时间格式</h3><h4 id="（1）-使用new-Date"><a href="#（1）-使用new-Date" class="headerlink" title="（1）.使用new Date()"></a>（1）.使用new Date()</h4><pre><code>const time = new Date(&apos;2017-03-12&apos;);
 console.log(time); // Sun Mar 12 2017 08:00:00 GMT+0800 (CST)
 
 const time = new Date(&apos;2017-3-12&apos;);
@@ -155,7 +14,7 @@ console.log(time); // Invalid Date
 
 const time = new Date(&apos;2017-03-12 12:00:00&apos;);
 console.log(time); // invalid Date
-</code></pre><h4 id="&#xFF08;2&#xFF09;-&#x4F7F;&#x7528;moment"><a href="#&#xFF08;2&#xFF09;-&#x4F7F;&#x7528;moment" class="headerlink" title="&#xFF08;2&#xFF09;.&#x4F7F;&#x7528;moment"></a>&#xFF08;2&#xFF09;.&#x4F7F;&#x7528;moment</h4><pre><code>const time = moment(&apos;2017-03-12&apos;).format(&apos;YYYYMMDD&apos;);
+</code></pre><h4 id="（2）-使用moment"><a href="#（2）-使用moment" class="headerlink" title="（2）.使用moment"></a>（2）.使用moment</h4><pre><code>const time = moment(&apos;2017-03-12&apos;).format(&apos;YYYYMMDD&apos;);
 console.log(time); // &quot;20170312&quot;
 
 const time = moment(&apos;2017-3-12&apos;).format(&apos;YYYYMMDD&apos;);
@@ -166,107 +25,8 @@ console.log(time); // &quot;20170312&quot;
 
 const time = moment(&apos;2017-3-12 12:00:00&apos;).format(&apos;YYYYMMDD&apos;);
 console.log(time); // &quot;Invalid date&quot;
-</code></pre><h3 id="3-chrome-&#x5168;&#x90E8;&#x89E3;&#x6790;&#x6B63;&#x5E38;"><a href="#3-chrome-&#x5168;&#x90E8;&#x89E3;&#x6790;&#x6B63;&#x5E38;" class="headerlink" title="3.chrome &#x5168;&#x90E8;&#x89E3;&#x6790;&#x6B63;&#x5E38;"></a>3.chrome &#x5168;&#x90E8;&#x89E3;&#x6790;&#x6B63;&#x5E38;</h3><h3 id="4-IOS-&#x4E2D;new-Date-&#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x539F;&#x56E0;"><a href="#4-IOS-&#x4E2D;new-Date-&#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x539F;&#x56E0;" class="headerlink" title="4.IOS &#x4E2D;new Date() &#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x539F;&#x56E0;"></a>4.IOS &#x4E2D;new Date() &#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x539F;&#x56E0;</h3><p> &#x5728;IOS5&#x4EE5;&#x4E0A;&#x7248;&#x672C;&#xFF08;&#x4E0D;&#x5305;&#x542B;IOS5&#xFF09;&#x4E2D;&#x7684;Safari&#x6D4F;&#x89C8;&#x5668;&#x80FD;&#x6B63;&#x786E;&#x89E3;&#x6790;&#x51FA;Javascript&#x4E2D;&#x7684; new Date(&#x2018;2017-03-12&#x2019;) &#x7684;&#x65E5;&#x671F;&#x5BF9;&#x8C61;&#x3002;&#x4E0D;&#x80FD;&#x89E3;&#x6790;new Date(&#x2018;2017-03-12 12:00:00&#x2019;)&#x7684;&#x65E5;&#x671F;&#x5BF9;&#x8C61;</p>
-<p>&#x4F46;&#x662F;&#x5728;IOS5&#x7248;&#x672C;&#x91CC;&#x9762;&#x7684;Safari&#x89E3;&#x6790;new Date(&#x2018;2017-03-12&#x2019;) &#x5C31;&#x4E0D;&#x6B63;&#x786E;&#xFF0C;&#x5728;IOS5&#x7684;Safari&#x4E2D;&#x8FD4;&#x56DE;&#x7684;&#x6C38;&#x8FDC;&#x662F;&#x201D;Invalid Date&#x201D;&#x3002;</p>
-<p>YYYY-MM-DD&#x683C;&#x5F0F;&#x662F;&#x5305;&#x542B;&#x5728;&#x6807;&#x51C6;&#x4E2D;&#x7684;&#xFF0C;&#x53EA;&#x662F;Safari&#x6CA1;&#x6709;&#x5B9E;&#x73B0;, &#x89E3;&#x51B3;&#x529E;&#x6CD5;&#xFF1A; &#x4F7F;&#x7528;&#x2018;/&#x2019; &#x4EE3;&#x66FF; &#x2018;-&#x2018;  new Date(&#x2018;2017/03/12 12:00:00&#x2019;);</p>
-<h3 id="5-IOS-&#x4E2D;moment-&#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x89E3;&#x51B3;&#x529E;&#x6CD5;"><a href="#5-IOS-&#x4E2D;moment-&#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x89E3;&#x51B3;&#x529E;&#x6CD5;" class="headerlink" title="5.IOS &#x4E2D;moment() &#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x89E3;&#x51B3;&#x529E;&#x6CD5;"></a>5.IOS &#x4E2D;moment() &#x4E0D;&#x80FD;&#x89E3;&#x6790;&#x7684;&#x89E3;&#x51B3;&#x529E;&#x6CD5;</h3><p>&#x4F7F;&#x7528;moment(&#x2018;&#x65F6;&#x95F4;&#x2019;, &#x2018;YYYY-MM&#x2019;).format(&#x2018;YYYYYMM&#x2019;)&#x4EE3;&#x66FF;</p>
-
-                        
-                    </div>
-
-                    
-                    
-                    
-
-                    <div class="description post-description">
-    <span class="post-description-item">
-        <time datetime="2017-03-07T06:49:29.000Z" itemprop="datePublished">2017-03-07</time>
-
-    </span>
-    <span class="post-description-item">
-        
-    </span>
-</div>
-
-                </div>
-                
-                <div id="pagination" class="nav-web ui text container pagination">
-
-    <div class="ui stackable two column divided grid container">
-        <div class="row">
-            <div class="column nav-left">
-                
-
-                <a class="ui tiny button disabled"><i class="angle left icon"></i>Previous</a>
-
-                
-            </div>
-            <div class="column nav-right">
-                
-
-                <a href="/2017/02/17/js-关于文件处理/" class="ui tiny button">
-                    
-                    js 关于文件处理
-                    
-                    <i class="angle right icon"></i></a>
-                
-            </div>
-        </div>
-    </div>
-
-</div>
-                
-            </div>
-
-            
-            <div class="three wide computer three wide tablet column">
-
-                <div class="ui sticky article-toc" id="article-toc">
-                    <!-- toc -->
-                    <ol class="ui ordered list"><li><a href="#IOS-safari-中不能解析的时间格式"><span>IOS safari 中不能解析的时间格式</span></a><ol><li><a href="#1-需解析的时间格式-三种"><span>1.需解析的时间格式(三种)</span></a></li><li><a href="#2-safari浏览器-解析上面时间格式"><span>2.safari浏览器 解析上面时间格式</span></a><ol><li><a href="#（1）-使用new-Date"><span>（1）.使用new Date()</span></a></li><li><a href="#（2）-使用moment"><span>（2）.使用moment</span></a></li></ol></li><li><a href="#3-chrome-全部解析正常"><span>3.chrome 全部解析正常</span></a></li><li><a href="#4-IOS-中new-Date-不能解析的原因"><span>4.IOS 中new Date() 不能解析的原因</span></a></li><li><a href="#5-IOS-中moment-不能解析的解决办法"><span>5.IOS 中moment() 不能解析的解决办法</span></a></li></ol></li></ol>
-                </div>
-
-            </div>
-            
-
-        </div>
-    </div>
-</div>
-
-
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        </div>
-        <div class="ui vertical footer segment">
-    <div class="ui center aligned container">
-        <div class="ui inverted section divider"></div>
-        &copy; 2017 <a href="/">John Doe</a>,
-        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a
-                href="http://hexo.io/" target="_blank">Hexo</a>.
-    </div>
-</div>
-
-    </div>
-
-
-
-
-<!-- scripts list from theme config.yml -->
-
-<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
-
-<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
-
-<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
-
-<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
-
-<script src="/js/semantic-ui-algolia.js"></script>
-
-<script src="/js/aloha-events.js"></script>
-
-
-
-</body>
-</html>
+</code></pre><h3 id="3-chrome-全部解析正常"><a href="#3-chrome-全部解析正常" class="headerlink" title="3.chrome 全部解析正常"></a>3.chrome 全部解析正常</h3><h3 id="4-IOS-中new-Date-不能解析的原因"><a href="#4-IOS-中new-Date-不能解析的原因" class="headerlink" title="4.IOS 中new Date() 不能解析的原因"></a>4.IOS 中new Date() 不能解析的原因</h3><p> 在IOS5以上版本（不包含IOS5）中的Safari浏览器能正确解析出Javascript中的 new Date(‘2017-03-12’) 的日期对象。不能解析new Date(‘2017-03-12 12:00:00’)的日期对象</p>
+<p>但是在IOS5版本里面的Safari解析new Date(‘2017-03-12’) 就不正确，在IOS5的Safari中返回的永远是”Invalid Date”。</p>
+<p>YYYY-MM-DD格式是包含在标准中的，只是Safari没有实现, 解决办法： 使用‘/’ 代替 ‘-‘  new Date(‘2017/03/12 12:00:00’);</p>
+<h3 id="5-IOS-中moment-不能解析的解决办法"><a href="#5-IOS-中moment-不能解析的解决办法" class="headerlink" title="5.IOS 中moment() 不能解析的解决办法"></a>5.IOS 中moment() 不能解析的解决办法</h3><p>使用moment(‘时间’, ‘YYYY-MM’).format(‘YYYYYMM’)代替</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-03-07</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"> <a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"> <a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"> <a href="http://twitter.com/home?status=,http://yoursite.com/2017/03/07/关于IOS-javascript-date-的bug/,Hexo,关于IOS javascript date 的bug,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a role="navigation" href="/2017/02/17/js-关于文件处理/" title="js 关于文件处理" class="btn">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
