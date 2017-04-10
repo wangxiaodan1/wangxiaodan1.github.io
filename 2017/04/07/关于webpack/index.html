@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="王晓丹"><title>创建react、webpack 项目 · Hexo</title><meta name="description" content="一、创建一个react项目初始化项目
+新建一个文件夹  &amp;gt;  然后在命令行下对项目进行初始化
+初始化的步骤
+下载node.js，并安装
+进入项目目录运行：npm init  &amp;gt; 文件夹内多出了一个 package.json 文件
+直接用 npm 安装的速度很慢，我们可以用 cnpm in"><meta name="keywords" content="Hexo,HTML,Ben,CSS,安卓,android,Linux,linuxdeepin"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">Hexo</a></h3><div class="description"><p>脑袋要爆炸.....</p></div></div></div><ul class="social-links"><li><a href="https://twitter.com/Ben_wenbin"><i class="fa fa-twitter"></i></a></li><li><a href="http://instagram.com/hwbinbenben"><i class="fa fa-instagram"></i></a></li><li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li><li><a href="http://weibo.com/ben0036"><i class="fa fa-weibo"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai</a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1491546115&amp;di=02ec5a1ca0b6194e629b745399c9a0bc&amp;src=http://img5.bbs.szhome.com/UploadFiles/Images/2011/02/20/022020093128.jpg"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>创建react、webpack 项目</a></h3></div><div class="post-content"><h3 id="一、创建一个react项目"><a href="#一、创建一个react项目" class="headerlink" title="一、创建一个react项目"></a>一、创建一个react项目</h3><h4 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h4><ul>
+<li>新建一个文件夹  &gt;  然后在命令行下对项目进行初始化</li>
+<li>初始化的步骤<ul>
+<li>下载node.js，并安装</li>
+<li>进入项目目录运行：npm init  &gt; 文件夹内多出了一个 package.json 文件</li>
+<li>直接用 npm 安装的速度很慢，我们可以用 cnpm install 命令来代替 npm install 命令<ul>
+<li>安装命令  npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="二、安装及配置-webpack"><a href="#二、安装及配置-webpack" class="headerlink" title="二、安装及配置 webpack"></a>二、安装及配置 webpack</h3><h4 id="1-webpack是什么？"><a href="#1-webpack是什么？" class="headerlink" title="1.webpack是什么？"></a>1.webpack是什么？</h4><blockquote>
+<p>Webpack 是一个前端资源加载/打包工具，它能够将各种资源如 js、css、图片作为模块载入并进行打包</p>
+<h4 id="2-webpack的配置"><a href="#2-webpack的配置" class="headerlink" title="2.webpack的配置"></a>2.webpack的配置</h4><ul>
+<li>安装 webpack：cnpm install –save-dev webpack(配置的东西放在devDependencies中， 程序中使用的包放在Dependencies)</li>
+<li>webpack 的测试<ul>
+<li>在非全局模式安装的webpack的测试， 可以在package.json中的scripts下添加命令  如：”build”: “webpack ./index.js ./build.js”  -&gt;  运行 npm run build  -&gt;  将 index.js 文件打包成名为 bundle.js 的文件 -&gt;  运行 node build.js  -&gt;  打印出index文件中的内容</li>
+</ul>
+</li>
+<li>webpack 的配置文件<ul>
+<li>新建 webpack.config.js 文件：</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<pre><code>var path = require(&apos;path&apos;);
+var webpack = require(&apos;webpack&apos;);
+
+module.exports = {
+ // webpack 进行打包的入口文件，这里 webpack 从根目录下的 index.js 开始进行打包
+ entry: [
+   &apos;./index&apos;
+ ],
+ // webpack 打包后的输出文件的路径
+ output: {
+   path: path.join(__dirname, &apos;dist&apos;), // 文件放至当前路径下的 dist 文件夹
+   filename: &apos;bundle.js&apos;,  // 将打包后的输出文件命名为 bundle.js
+ }
+}
+</code></pre><blockquote>
+<p>html 文件的引用路径相应地改成：</p>
+</blockquote>
+<pre><code>&lt;script src=&quot;./dist/bundle.js&quot;&gt;&lt;/script&gt;
+</code></pre><h3 id="三、关于babel"><a href="#三、关于babel" class="headerlink" title="三、关于babel"></a>三、关于babel</h3><h4 id="Babel-是什么？"><a href="#Babel-是什么？" class="headerlink" title="Babel 是什么？"></a>Babel 是什么？</h4><blockquote>
+<p>因为在 React 的项目中会用到 ES6(即ES2015) 的语法，而 ES6 还没有得到广泛的支持，所以我们需要借用 Babel 这个工具将我们使用了 ES6 语法的代码转换成 ES5 的语法，从而可以在更广泛的环境下运行。</p>
+<h4 id="怎么安装-Babel？"><a href="#怎么安装-Babel？" class="headerlink" title="怎么安装 Babel？"></a>怎么安装 Babel？</h4><p>安装 babel-loader babel-core  babel-preset-es2015<br>现在只要添加一个 .babelrc 文件即可，babelrc 是 Babel 的配置文件<br>只需在 .babelrc 中写入如下内容</p>
+<ul>
+<li>{ “presets”: [“es2015”, “stage-0”] }</li>
+</ul>
+<p>将 webpack.config.js 文件做如下的修改：</p>
+</blockquote>
+<pre><code>module: {
+  loaders: [{
+    test: /\.js$/,
+    loaders: [&apos;babel&apos;],
+    include: path.join(__dirname, &apos;src&apos;)
+  }]
+},
+devServer: {
+  stats: &apos;errors-only&apos;
+}
+</code></pre></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-04-07</span><i class="fa fa-tag"></i><a href="/tags/从头创建react项目/" title="从头创建react项目" class="tag">从头创建react项目 </a></div></div></div></div><div class="share"><div class="evernote"> <a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"> <a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"> <a href="http://twitter.com/home?status=,http://yoursite.com/2017/04/07/关于webpack/,Hexo,创建react、webpack 项目,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a role="navigation" href="/2017/03/28/设计模式的概述/" title="设计模式的概述" class="btn">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
