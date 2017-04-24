@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="王晓丹"><title>前端图片优化 · Hexo</title><meta name="description" content="确认是否真的需要图片拿到设计图，看设计图的实现中有哪些页面中的图片是可以用css样式设置代替实现的。如果有，应该首先选择这些技术，只有在不得不使用图片的时候才加入真正的图片。
+前端图片优化方案
+使用base64编码代替图片
+
+
+适用于: 图片大小小于2KB，页面上引用图片总数不多的情况。
+原理： 将"><meta name="keywords" content="Hexo,HTML,Ben,CSS,安卓,android,Linux,linuxdeepin"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">Hexo</a></h3><div class="description"><p>脑袋要爆炸.....</p></div></div></div><ul class="social-links"><li><a href="https://twitter.com/Ben_wenbin"><i class="fa fa-twitter"></i></a></li><li><a href="http://instagram.com/hwbinbenben"><i class="fa fa-instagram"></i></a></li><li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li><li><a href="http://weibo.com/ben0036"><i class="fa fa-weibo"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai</a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1491546115&amp;di=02ec5a1ca0b6194e629b745399c9a0bc&amp;src=http://img5.bbs.szhome.com/UploadFiles/Images/2011/02/20/022020093128.jpg"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>前端图片优化</a></h3></div><div class="post-content"><h3 id="确认是否真的需要图片"><a href="#确认是否真的需要图片" class="headerlink" title="确认是否真的需要图片"></a>确认是否真的需要图片</h3><p>拿到设计图，看设计图的实现中有哪些页面中的图片是可以用css样式设置代替实现的。如果有，应该首先选择这些技术，只有在不得不使用图片的时候才加入真正的图片。</p>
+<h3 id="前端图片优化方案"><a href="#前端图片优化方案" class="headerlink" title="前端图片优化方案"></a>前端图片优化方案</h3><ul>
+<li><h4 id="使用base64编码代替图片"><a href="#使用base64编码代替图片" class="headerlink" title="使用base64编码代替图片"></a>使用base64编码代替图片</h4></li>
+</ul>
+<blockquote>
+<p>适用于: 图片大小小于2KB，页面上引用图片总数不多的情况。</p>
+<p>原理： 将图片转换为base64编码字符串inline到页面或css中</p>
+<p>优势：减少http的请求次数</p>
+</blockquote>
+<hr>
+<ul>
+<li><h4 id="合并图片sprite-雪碧图"><a href="#合并图片sprite-雪碧图" class="headerlink" title="合并图片sprite(雪碧图)"></a>合并图片sprite(雪碧图)</h4></li>
+</ul>
+<blockquote>
+<p>适用场景： 任何用到页面图片的场景</p>
+<p>原理： 将多个页面上用到的背景图片合并成一个大的图片在页面中引用</p>
+<p>减少http的请求次数</p>
+</blockquote>
+<hr>
+<ul>
+<li><h4 id="使用css、svg、canvas或iconfont代替图片"><a href="#使用css、svg、canvas或iconfont代替图片" class="headerlink" title="使用css、svg、canvas或iconfont代替图片"></a>使用css、svg、canvas或iconfont代替图片</h4></li>
+</ul>
+<blockquote>
+<p>css代替图片(svg)</p>
+<p>适用场景： 适用于移动端或较高级的浏览器，而且绘制的图案较为简单</p>
+<p>原理：css方式可以用来绘制相对简单的团来代替图片，一般使用before或者after伪元素来丰富图案的复杂度</p>
+<p>优势 : 具有实现简单，图片体积小的特点，可以实现简单的动态效果</p>
+<p>canvas代替图片</p>
+<p>适用场景： 需要高性能的图片或动画</p>
+<p>原理： 适用html5的canvas元素绘制创建图片</p>
+<p>优势： 页面渲染性能比较高，页面渲染性能受图形复杂度影响小，性能只受图形的分辨率的影响，画出来的图形可以直接保存为 .png 或者 .jpg的图形，适合于画光栅图像或者不规则图形</p>
+<p>iconfont是一种web字体来代替图片</p>
+<p>适用场景： 代替页面上色彩单一的图片</p>
+<p>优势: 兼容性好，应用广，目前使用也很广泛</p>
+<p>阿里妈妈的iconFont -&gt;  <a href="http://www.iconfont.cn/" target="_blank" rel="external">http://www.iconfont.cn/</a></p>
+</blockquote>
+<hr>
+<ul>
+<li><h4 id="响应式图片"><a href="#响应式图片" class="headerlink" title="响应式图片"></a>响应式图片</h4></li>
+</ul>
+<blockquote>
+<p>适用场景： 不同终端对同一个图片需求不一样，可以根据终端加载不同的图片来节省没必要的流量</p>
+<p>原理： 通过picture元素，picturefill或平台判断来为不同终端平台输出不同的图片</p>
+<p>优势： 减少没必要的图片加载，灵活控制，慢速用户加载小图片不至于加载失败，移动端没必要加载大尺寸图片等，可以通过不同方式兼容所有浏览器</p>
+<p>实现： 最终的步骤是在网页中实现响应式图片。这种方法即所谓的 分辨率切换，使用 picture 标准的一部分 srcset 和 sizes 属性。</p>
+</blockquote>
+<hr>
+<ul>
+<li><h4 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h4></li>
+</ul>
+<blockquote>
+<p>适用场景： 在不得不加载图片的前提下，要进一步提升优化效果，只能通过有损或无损压缩来减少图片的大小。</p>
+<p>原理： 对图片进行无损、有损压缩，转为压缩后图片来实现</p>
+<p>优势： 减少图片加载流量</p>
+</blockquote>
+<hr>
+<ul>
+<li><h4 id="更好的图片格式"><a href="#更好的图片格式" class="headerlink" title="更好的图片格式"></a>更好的图片格式</h4></li>
+</ul>
+<blockquote>
+<p>适用场景： 使用webp、bpg、sharpP等新图片格式代替原始图片</p>
+<p>原理： 对图片格式转换达到更好的压缩比效果</p>
+<p>优势： 减少图片加载流量</p>
+</blockquote>
+<hr>
+<ul>
+<li><h4 id="按照HTTP协议设置合理的缓存"><a href="#按照HTTP协议设置合理的缓存" class="headerlink" title="按照HTTP协议设置合理的缓存"></a>按照HTTP协议设置合理的缓存</h4></li>
+</ul>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>页面静态资源图片使用css，canvas，svg，iconfont，sprite，base64来优化，后台返回的数据资源图片则通过响应式、图片压缩来优化，同时尽可能考虑使用新的更高压缩比的图片来做图片转化。例如webp、bpg</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-04-24</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"> <a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"> <a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"> <a href="http://twitter.com/home?status=,http://yoursite.com/2017/04/24/前端图片优化/,Hexo,前端图片优化,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a role="navigation" href="/2017/04/07/关于webpack/" title="创建react、webpack 项目" class="btn">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
