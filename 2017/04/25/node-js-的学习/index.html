@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="王晓丹"><title>node.js 的学习 · Hexo</title><meta name="description" content="一、nodejs 的安装配置
+安装 nodejs   nvm install node
+查看node信息   node -v
+
+二、创建 Node.js 应用
+使用 require 指令来载入 http 模块
+
+var http = require(&amp;quot;http&amp;quot;);
+
+使用 ht"><meta name="keywords" content="Hexo,HTML,Ben,CSS,安卓,android,Linux,linuxdeepin"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">Hexo</a></h3><div class="description"><p>脑袋要爆炸.....</p></div></div></div><ul class="social-links"><li><a href="https://twitter.com/Ben_wenbin"><i class="fa fa-twitter"></i></a></li><li><a href="http://instagram.com/hwbinbenben"><i class="fa fa-instagram"></i></a></li><li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li><li><a href="http://weibo.com/ben0036"><i class="fa fa-weibo"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai</a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1491546115&amp;di=02ec5a1ca0b6194e629b745399c9a0bc&amp;src=http://img5.bbs.szhome.com/UploadFiles/Images/2011/02/20/022020093128.jpg"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>node.js 的学习</a></h3></div><div class="post-content"><hr>
+<h4 id="一、nodejs-的安装配置"><a href="#一、nodejs-的安装配置" class="headerlink" title="一、nodejs 的安装配置"></a>一、nodejs 的安装配置</h4><blockquote>
+<p>安装 nodejs   nvm install node</p>
+<p>查看node信息   node -v</p>
+</blockquote>
+<h4 id="二、创建-Node-js-应用"><a href="#二、创建-Node-js-应用" class="headerlink" title="二、创建 Node.js 应用"></a>二、创建 Node.js 应用</h4><blockquote>
+<p>使用 require 指令来载入 http 模块</p>
+</blockquote>
+<pre><code>var http = require(&quot;http&quot;);
+</code></pre><blockquote>
+<p>使用 http.createServer() 方法创建服务器</p>
+</blockquote>
+<pre><code>http.createServer(function(required,   response) {
+     response.writeHead(200, {&apos;Content-Type&apos;: &apos;text/plain&apos;});
+
+     response.send(&apos;hello world!!!&apos;);
+
+  }).listen(8080);
+</code></pre><blockquote>
+<p>查看 node 文件名  -&gt; 在浏览器中打开连接<a href="http://127.0.0.1:8080/" target="_blank" rel="external">http://127.0.0.1:8080/</a></p>
+</blockquote>
+<h4 id="npm-的使用"><a href="#npm-的使用" class="headerlink" title="npm 的使用"></a>npm 的使用</h4><blockquote>
+<p>npm 不需要安装  node中自带 npm</p>
+<p>使用npm安装模块</p>
+</blockquote>
+<pre><code>npm install 包名
+npm install 包名 -g
+</code></pre><blockquote>
+<p>卸载模块</p>
+</blockquote>
+<pre><code>npm uninstall 包名
+</code></pre><blockquote>
+<p>更新模块</p>
+</blockquote>
+<pre><code>npm update 包名
+</code></pre><blockquote>
+<p>搜索模块</p>
+</blockquote>
+<pre><code>npm search 包名
+</code></pre><blockquote>
+<p>创建模块</p>
+</blockquote>
+<pre><code>npm init（生成 package.json 文件）   -&gt;   npm adduser（在 npm 资源库中注册用户）  -&gt;   npm publish(发布)
+</code></pre><blockquote>
+<p>使用淘宝 NPM 镜像</p>
+</blockquote>
+<pre><code>- npm install -g cnpm --registry=https://registry.npm.taobao.org
+- cnpm install 包名
+</code></pre><h4 id="REPL-的使用"><a href="#REPL-的使用" class="headerlink" title="REPL 的使用"></a>REPL 的使用</h4><blockquote>
+<p>REPL 交互式解释器</p>
+<p>使用 ： 终端打node 回车  -&gt; 调试js代码</p>
+</blockquote>
+<h4 id="Node-js-回调函数"><a href="#Node-js-回调函数" class="headerlink" title="Node.js 回调函数"></a>Node.js 回调函数</h4><blockquote>
+<p>我们可以一边读取文件，一边执行其他命令，在文件读取完成后，我们将文件内容作为回调函数的参数返回。这样在执行代码时就没有阻塞或等待文件 I/O 操作。这就大大提高了 Node.js 的性能，可以处理大量的并发请求。</p>
+</blockquote>
+<h4 id="Node-js-事件循环"><a href="#Node-js-事件循环" class="headerlink" title="Node.js 事件循环"></a>Node.js 事件循环</h4><blockquote>
+<p>Node.js 使用事件驱动模型，当web server接收到请求，就把它关闭然后进行处理，然后去服务下一个web请求。<br>当这个请求完成，它被放回处理队列，当到达队列开头，这个结果被返回给用户。</p>
+</blockquote>
+<h4 id="Node-js-EventEmitter-事件发射器"><a href="#Node-js-EventEmitter-事件发射器" class="headerlink" title="Node.js EventEmitter (事件发射器)"></a>Node.js EventEmitter (事件发射器)</h4><blockquote>
+<p>EventEmitter 的每个事件由一个事件名和若干个参数组成，事件名是一个字符串，通常表达一定的语义。对于每个事件，EventEmitter 支持 若干个事件监听器。<br>当事件触发时，注册到这个事件的事件监听器被依次调用，事件参数作为回调函数参数传递。</p>
+<p>EventEmitter 提供了多个属性，如 on 和 emit。on 函数用于绑定事件函数，emit 属性用于触发一个事件</p>
+<p>大多数时候我们不会直接使用 EventEmitter，而是在对象中继承它。包括 fs、net、 http 在内的，只要是支持事件响应的核心模块都是 EventEmitter 的子类。</p>
+</blockquote>
+<h4 id="使用-Node-创建-Web-服务器"><a href="#使用-Node-创建-Web-服务器" class="headerlink" title="使用 Node 创建 Web 服务器"></a>使用 Node 创建 Web 服务器</h4><blockquote>
+<p>Node.js 提供了 http 模块，http 模块主要用于搭建 HTTP 服务端和客户端，使用 HTTP 服务器或客户端功能必须调用 http 模块</p>
+</blockquote>
+<pre><code>var http = require(&apos;http&apos;);
+</code></pre><blockquote>
+<p>HTTP 服务器架构(使用8081端口)，创建 server.js 文件</p>
+</blockquote>
+<pre><code>var http = require(&apos;http&apos;);
+var fs = require(&apos;fs&apos;);
+var url = require(&apos;url&apos;);
+
+
+// 创建服务器
+http.createServer( function (request, response) {  
+// 解析请求，包括文件名
+var pathname = url.parse(request.url).pathname;
+
+// 输出请求的文件名
+console.log(&quot;Request for &quot; + pathname + &quot; received.&quot;);
+
+// 从文件系统中读取请求的文件内容
+fs.readFile(pathname.substr(1), function (err, data) {
+  if (err) {
+     console.log(err);
+     // HTTP 状态码: 404 : NOT FOUND
+     // Content Type: text/plain
+     response.writeHead(404, {&apos;Content-Type&apos;: &apos;text/html&apos;});
+  }else{             
+     response.writeHead(200, {&apos;Content-Type&apos;: &apos;text/html&apos;});
+
+     // 响应文件内容
+     response.write(data.toString());        
+  }
+  //  发送响应数据
+  response.end();
+});   
+}).listen(8080);
+
+// 控制台会输出以下信息
+console.log(&apos;Server running at http://127.0.0.1:8080/&apos;);
+</code></pre><blockquote>
+<p>创建一个 index.html 文件</p>
+<p>Node 创建 Web 客户端需要引入 http 模块，创建 client.js 文件</p>
+</blockquote>
+<pre><code>var http = require(&apos;http&apos;);
+
+// 用于请求的选项
+var options = {
+   host: &apos;localhost&apos;,
+   port: &apos;8080&apos;,
+   path: &apos;/index.html&apos;  
+};
+
+// 处理响应的回调函数
+var callback = function(response){
+   // 不断更新数据
+   var body = &apos;&apos;;
+   response.on(&apos;data&apos;, function(data) {
+      body += data;
+   });
+
+   response.on(&apos;end&apos;, function() {
+      // 数据接收完成
+      console.log(body);
+   });
+}
+// 向服务端发送请求
+var req = http.request(options, callback);
+req.end();
+</code></pre></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-04-25</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"> <a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"> <a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"> <a href="http://twitter.com/home?status=,http://yoursite.com/2017/04/25/node-js-的学习/,Hexo,node.js 的学习,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a role="navigation" href="/2017/04/24/前端图片优化/" title="前端图片优化" class="btn">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
