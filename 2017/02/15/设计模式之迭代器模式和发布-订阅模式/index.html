@@ -179,10 +179,9 @@ salesOffices.listen(&apos;食物&apos;, (price) =&gt; {
 })
 salesOffices.trigger(&apos;化妆水&apos;, 1000);
 salesOffices.trigger(&apos;食物&apos;, 2000);
-</code></pre><h4 id="6-取消订阅的事件"><a href="#6-取消订阅的事件" class="headerlink" title="6. 取消订阅的事件"></a>6. 取消订阅的事件</h4><blockquote>
-<p>增加remove方法：</p>
-</blockquote>
-<pre><code>var event = {
+</code></pre><h4 id="6-取消订阅的事件"><a href="#6-取消订阅的事件" class="headerlink" title="6. 取消订阅的事件"></a>6. 取消订阅的事件</h4><pre><code>增加remove方法：
+
+var event = {
  clinetList: [],
  listen: function(key, fn) {
    if(!this.clinetList[key]) {
