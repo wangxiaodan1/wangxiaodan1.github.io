@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="王晓丹"><title>php 集成华为push功能 · Hexo</title><meta name="description" content="华为推送功能（php代码）
+最近几天研究了一下如何集成华为的推送，刚好赶上华为出新版，各种文档不清，调试不通，没有示例代码。所以在这里记录一下我使用php写的华为推送代码。
+
+准备工作
+向客户端同志索要 华为推送服务中的APP_ID和SECRET
+
+开始
+第一个接口是先去请求access_token"><meta name="keywords" content="Hexo,HTML,Ben,CSS,安卓,android,Linux,linuxdeepin"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">Hexo</a></h3><div class="description"><p>脑袋要爆炸.....</p></div></div></div><ul class="social-links"><li><a href="https://twitter.com/Ben_wenbin"><i class="fa fa-twitter"></i></a></li><li><a href="http://instagram.com/hwbinbenben"><i class="fa fa-instagram"></i></a></li><li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li><li><a href="http://weibo.com/ben0036"><i class="fa fa-weibo"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai</a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1491546115&amp;di=02ec5a1ca0b6194e629b745399c9a0bc&amp;src=http://img5.bbs.szhome.com/UploadFiles/Images/2011/02/20/022020093128.jpg"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>php 集成华为push功能</a></h3></div><div class="post-content"><h3 id="华为推送功能（php代码）"><a href="#华为推送功能（php代码）" class="headerlink" title="华为推送功能（php代码）"></a>华为推送功能（php代码）</h3><blockquote>
+<p>最近几天研究了一下如何集成华为的推送，刚好赶上华为出新版，各种文档不清，调试不通，没有示例代码。所以在这里记录一下我使用php写的华为推送代码。</p>
+</blockquote>
+<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><blockquote>
+<p>向客户端同志索要 华为推送服务中的APP_ID和SECRET</p>
+</blockquote>
+<h4 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h4><ul>
+<li><p>第一个接口是先去请求access_token</p>
+<pre><code>  //华为PUSH服务端获取下发通知消息的认  证TOKEN
+public static function getToken()
+{
+  $data = [
+      &apos;grant_type&apos; =&gt; &apos;client_credentials&apos;,
+      &apos;client_id&apos; =&gt; config(&apos;huawei-push.appID&apos;),
+      &apos;client_secret&apos; =&gt; config(&apos;huawei-push.secret&apos;),
+  ];
+  $data = @http_build_query($data);
+  $aContent = [
+      &apos;http&apos; =&gt; [
+          &apos;method&apos; =&gt; &apos;POST&apos;,
+          &apos;header&apos; =&gt; &apos;Content-Type: application/x-www-form-urlencoded&apos;,
+          &apos;content&apos; =&gt; $data,
+      ]
+  ];
+  $cxContext = stream_context_create($aContent);
+  $sUrl = &apos;https://login.vmall.com/oauth2/token&apos;;
+  $d = @file_get_contents($sUrl, false, $cxContext);
+  $token = json_decode($d)-&gt;access_token??&apos;&apos;;
+  return $token;
+</code></pre><p>  }</p>
+</li>
+<li><p>第二个接口 开始推送消息 我选用的是通知栏消息</p>
+<pre><code> //下发通知消息
+public static function pushMessage($userId){
+  $token = self::getToken();
+  $nsp_ctx = utf8_encode(json_encode([
+      &apos;ver&apos; =&gt; &apos;1&apos;,
+      &apos;appId&apos; =&gt; config(&apos;huawei-push.appID&apos;),
+  ]));
+
+  $expire_time = date(&quot;Y-m-d&quot;,strtotime(&quot;+1 day&quot;)) . &apos;T01:00&apos;;
+  $data = [
+      &apos;access_token&apos; =&gt; $token,
+      &apos;nsp_svc&apos; =&gt; &apos;openpush.message.api.send&apos;,
+      &apos;expire_time&apos; =&gt; $expire_time,
+      &apos;nsp_ts&apos; =&gt; time(),
+      &apos;device_token_list&apos; =&gt; json_encode([&quot;device_token&quot;]),
+      &apos;payload&apos; =&gt; json_encode([
+          &quot;hps&quot; =&gt; [
+              &quot;msg&quot; =&gt; [
+                  &quot;type&quot; =&gt; 3,
+                  &quot;body&quot; =&gt; [
+                      &quot;content&quot; =&gt; &apos;content&apos;,
+                      &quot;title&quot; =&gt; &quot;title&quot;,
+                  ],
+                  &quot;action&quot; =&gt; [
+                      &quot;type&quot; =&gt; 3,
+                      &quot;param&quot; =&gt; [
+                          &quot;appPkgName&quot; =&gt; &quot;包名&quot;
+                      ],
+                  ],
+              ],
+              &apos;ext&apos; =&gt; [
+                  &apos;customize&apos; =&gt; [[
+                      &quot;自定义消息key&quot; =&gt; 自定义消息value,
+                  ]]
+              ]
+          ]
+      ]),
+  ];
+
+  $data = http_build_query($data);
+  $aContent = [
+      &apos;http&apos; =&gt; [
+          &apos;method&apos; =&gt; &apos;POST&apos;,
+          &apos;header&apos; =&gt; &apos;Content-Type: application/x-www-form-urlencoded&apos;,
+          &apos;content&apos; =&gt; $data,
+      ]
+  ];
+  $cxContext = stream_context_create($aContent);
+  $sUrl = &quot;https://api.push.hicloud.com/pushsend.do?nsp_ctx={$nsp_ctx}&quot;;
+  $d = file_get_contents($sUrl, false, $cxContext);
+</code></pre><p>  }</p>
+<p>  <em>如果推送成功返回的参数为{“requestId”:”1500538976090752173”,”msg”:”success”,”code”:”80000000”}</em></p>
+</li>
+</ul>
+<h3 id="注意的点"><a href="#注意的点" class="headerlink" title="注意的点"></a>注意的点</h3><ul>
+<li><ol>
+<li>报错信息中有参数错误的信息， 查询文档说缺少nsp_key值参数。 没有该参数，可能是你的编码有问题， 使用utf-8编码。</li>
+</ol>
+</li>
+<li><ol>
+<li>device_token是客户端的同志提供给你的，必传。如果是多个用逗号隔开。</li>
+</ol>
+</li>
+</ul>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-07-21</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"> <a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"> <a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"> <a href="http://twitter.com/home?status=,http://yoursite.com/2017/07/21/php-集成华为push功能/,Hexo,php 集成华为push功能,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a role="navigation" href="/2017/07/10/php优化/" title="php优化" class="btn">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
