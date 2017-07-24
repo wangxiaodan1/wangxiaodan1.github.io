@@ -1,0 +1,125 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="王晓丹"><title>ES6-Symbol · Hexo</title><meta name="description" content="1.Symbol概述
+ES5 的对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法，新方法的名字就有可能与现有方法产生冲突。为防止属性名的冲突， 引入了Symbol。
+Symbol 是一种新的数据类型， 表示独一无二的值。它是 JavaScr"><meta name="keywords" content="Hexo,HTML,Ben,CSS,安卓,android,Linux,linuxdeepin"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">Hexo</a></h3><div class="description"><p>脑袋要爆炸.....</p></div></div></div><ul class="social-links"><li><a href="https://twitter.com/Ben_wenbin"><i class="fa fa-twitter"></i></a></li><li><a href="http://instagram.com/hwbinbenben"><i class="fa fa-instagram"></i></a></li><li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li><li><a href="http://weibo.com/ben0036"><i class="fa fa-weibo"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai</a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1491546115&amp;di=02ec5a1ca0b6194e629b745399c9a0bc&amp;src=http://img5.bbs.szhome.com/UploadFiles/Images/2011/02/20/022020093128.jpg"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>ES6-Symbol</a></h3></div><div class="post-content"><h3 id="1-Symbol概述"><a href="#1-Symbol概述" class="headerlink" title="1.Symbol概述"></a>1.Symbol概述</h3><blockquote>
+<p>ES5 的对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法，新方法的名字就有可能与现有方法产生冲突。为防止属性名的冲突， 引入了Symbol。</p>
+<p>Symbol 是一种新的数据类型， 表示独一无二的值。它是 JavaScript 语言的第七种数据类型。Symbol 值通过Symbol函数生成。</p>
+</blockquote>
+<pre><code>let s = Symbol();
+
+typeof s
+// &quot;symbol&quot;
+</code></pre><blockquote>
+<p><em>注意，Symbol函数前不能使用new命令，否则会报错。这是因为生成的 Symbol 是一个原始类型的值，不是对象。也就是说，由于 Symbol 值不是对象，所以不能添加属性。基本上，它是一种类似于字符串的数据类型。</em></p>
+<p>Symbol 函数可以接受一个字符串作为参数，表示对 Symbol 实例的描述。如果 Symbol 的参数是一个对象，就会调用该对象的toString方法，将其转为字符串，然后才生成一个 Symbol 值。Symbol函数的参数只是表示对当前 Symbol 值的描述，因此相同参数的Symbol函数的返回值是不相等的。</p>
+</blockquote>
+<h3 id="2-作为属性名的-Symbol"><a href="#2-作为属性名的-Symbol" class="headerlink" title="2.作为属性名的 Symbol"></a>2.作为属性名的 Symbol</h3><pre><code>var mySymbol = Symbol();
+
+// 第一种写法
+var a = {};
+a[mySymbol] = &apos;Hello!&apos;;
+
+// 第二种写法
+var a = {
+  [mySymbol]: &apos;Hello!&apos;
+};
+
+// 第三种写法
+var a = {};
+Object.defineProperty(a, mySymbol, { value: &apos;Hello!&apos; });
+
+// 以上写法都得到同样结果
+a[mySymbol] // &quot;Hello!&quot;
+</code></pre><blockquote>
+<p><em>注意，Symbol 值作为对象属性名时，不能用点运算符。</em></p>
+<p>在对象的内部，使用 Symbol 值定义属性时，Symbol 值必须放在方括号之中。</p>
+</blockquote>
+<pre><code>let s = Symbol();
+
+let obj = {
+  [s]: function (arg) { ... }
+};
+
+obj[s](123);
+</code></pre><blockquote>
+<p>Symbol 值作为属性名时，该属性还是公开属性，不是私有属性。</p>
+</blockquote>
+<h3 id="3-消除魔术字符串"><a href="#3-消除魔术字符串" class="headerlink" title="3.消除魔术字符串"></a>3.消除魔术字符串</h3><blockquote>
+<p>魔术字符串指的是，在代码之中多次出现、与代码形成强耦合的某一个具体的字符串或者数值。风格良好的代码，应该尽量消除魔术字符串，改由含义清晰的变量代替。</p>
+</blockquote>
+<h3 id="4-属性名的遍历"><a href="#4-属性名的遍历" class="headerlink" title="4. 属性名的遍历"></a>4. 属性名的遍历</h3><blockquote>
+<p>Object.getOwnPropertySymbols方法返回一个数组，成员是当前对象的所有用作属性名的 Symbol 值。</p>
+</blockquote>
+<pre><code>var obj = {};
+var a = Symbol(&apos;a&apos;);
+var b = Symbol(&apos;b&apos;);
+
+obj[a] = &apos;Hello&apos;;
+obj[b] = &apos;World&apos;;
+
+var objectSymbols = Object.getOwnPropertySymbols(obj);
+
+objectSymbols
+// [Symbol(a), Symbol(b)]
+</code></pre><blockquote>
+<p>Reflect.ownKeys方法可以返回所有类型的键名，包括常规键名和 Symbol 键名。</p>
+</blockquote>
+<pre><code>let obj = {
+[Symbol(&apos;my_key&apos;)]: 1,
+enum: 2,
+nonEnum: 3
+};
+
+Reflect.ownKeys(obj)
+//  [&quot;enum&quot;, &quot;nonEnum&quot;, Symbol(my_key)]
+</code></pre><blockquote>
+<p>由于以 Symbol 值作为名称的属性，不会被常规方法遍历得到。我们可以利用这个特性，为对象定义一些非私有的、但又希望只用于内部的方法。</p>
+</blockquote>
+<pre><code>var size = Symbol(&apos;size&apos;);
+
+class Collection {
+  constructor() {
+    this[size] = 0;
+  }
+
+  add(item) {
+    this[this[size]] = item;
+    this[size]++;
+  }
+
+  static sizeOf(instance) {
+    return instance[size];
+  }
+}
+
+var x = new Collection();
+Collection.sizeOf(x) // 0
+
+x.add(&apos;foo&apos;);
+Collection.sizeOf(x) // 1
+
+Object.keys(x) // [&apos;0&apos;]
+Object.getOwnPropertyNames(x) // [&apos;0&apos;]
+Object.getOwnPropertySymbols(x) // [Symbol(size)]
+</code></pre><blockquote>
+<p>对象x的size属性是一个 Symbol 值，所以Object.keys(x)、Object.getOwnPropertyNames(x)都无法获取它。这就造成了一种非私有的内部方法的效果。</p>
+</blockquote>
+<h3 id="5-Symbol-for-，Symbol-keyFor"><a href="#5-Symbol-for-，Symbol-keyFor" class="headerlink" title="5. Symbol.for()，Symbol.keyFor()"></a>5. Symbol.for()，Symbol.keyFor()</h3><blockquote>
+<p>我们希望重新使用同一个Symbol值，Symbol.for方法可以做到这一点。它接受一个字符串作为参数，然后搜索有没有以该参数作为名称的Symbol值。如果有，就返回这个Symbol值，否则就新建并返回一个以该字符串为名称的Symbol值。</p>
+<p>Symbol.keyFor方法返回一个已登记的 Symbol 类型值的key。</p>
+</blockquote>
+<h3 id="6-模块的-Singleton-模式"><a href="#6-模块的-Singleton-模式" class="headerlink" title="6. 模块的 Singleton 模式"></a>6. 模块的 Singleton 模式</h3><blockquote>
+<p>Singleton模式指的是调用一个类，任何时候返回的都是同一个实例。</p>
+</blockquote>
+<pre><code>// mod.js
+const FOO_KEY = Symbol.for(&apos;foo&apos;);
+
+function A() {
+  this.foo = &apos;hello&apos;;
+}
+
+if (!global[FOO_KEY]) {
+  global[FOO_KEY] = new A();
+}
+
+module.exports = global[FOO_KEY];
+</code></pre></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-07-24</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"> <a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"> <a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"> <a href="http://twitter.com/home?status=,http://yoursite.com/2017/07/24/ES6-Symbol/,Hexo,ES6-Symbol,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a role="navigation" href="/2017/07/21/php-集成华为push功能/" title="php 集成华为push功能" class="btn">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
